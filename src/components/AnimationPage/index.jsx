@@ -16,7 +16,7 @@ export const AnimationPage = ({ children, repeat }) => {
         initial="initial"
         animate="animate"
         exit="exit"
-        transition={{ repeat: 1, duration: 2 }}
+        transition={{ duration: 1 }}
       >
         {children}
       </motion.div>

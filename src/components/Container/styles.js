@@ -16,14 +16,16 @@ export const Container = styled.div`
   ${({ img, theme }) => css`
     margin: 0 auto;
     min-height: 100vh;
-    max-width: 100%;
+
     padding: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     background: url(${img}) no-repeat;
+
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
+    transition: 1.5s;
   `}
 `;

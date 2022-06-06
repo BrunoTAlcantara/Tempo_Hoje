@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 import { ImgDay } from '../../components/ImgDay';
 import { Input, Section, SectionInfo } from './styles';
 import { DadosSide } from '../../components/DadosSide';
-import { AnimationPage } from '../../components/AnimationPage';
+import { motion } from 'framer-motion';
 
 function Home() {
   const [city, setCity] = useState('ituiutaba');
@@ -28,24 +28,22 @@ function Home() {
   return (
     <div className="App">
       <Styled.Wrapper>
-        <AnimationPage>
-          <Container data={data} loading={loading}>
-            <Input
-              type="text"
-              placeholder="Digite uma cidade"
-              onKeyPress={handleSearchLocation}
-            ></Input>
-            <CardSolar>
-              <Section>
-                <Dados data={data} loading={loading} />
-                <ImgDay data={data} loading={loading}></ImgDay>
-              </Section>
-              <SectionInfo>
-                <DadosSide data={data} loading={loading} />
-              </SectionInfo>
-            </CardSolar>
-          </Container>
-        </AnimationPage>
+        <Container data={data} loading={loading}>
+          <Input
+            type="text"
+            placeholder="Digite uma cidade"
+            onKeyPress={handleSearchLocation}
+          ></Input>
+          <CardSolar>
+            <Section>
+              <Dados data={data} loading={loading} />
+              <ImgDay data={data} loading={loading}></ImgDay>
+            </Section>
+            <SectionInfo>
+              <DadosSide data={data} loading={loading} />
+            </SectionInfo>
+          </CardSolar>
+        </Container>
       </Styled.Wrapper>
     </div>
   );

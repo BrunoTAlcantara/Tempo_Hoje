@@ -5,10 +5,15 @@ import day from '../../imgs/newday.jpg';
 import { AnimationPage } from '../../components/AnimationPage';
 
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 export const Container = ({ children, data }) => {
   const [imag, setImag] = useState('');
-
+  const animation = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
   const isDay = data.current ? data.current.is_day : null;
 
   useEffect(() => {
@@ -22,9 +27,11 @@ export const Container = ({ children, data }) => {
   console.log(isDay);
   console.log(imag);
 
-  {
-    return <Styled.Container img={imag}>{children}</Styled.Container>;
-  }
+  return (
+    <Styled.Container as={motion.div} layout img={imag}>
+      {children}
+    </Styled.Container>
+  );
 };
 Container.propTypes = {
   children: P.node.isRequired,
